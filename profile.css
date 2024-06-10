@@ -1,0 +1,726 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Comfortaa", sans-serif;
+}
+
+body {
+    background: url('background.jpg') no-repeat center center;
+    width: 100%;
+    min-height: 120vh;
+    background-size: cover;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    padding: 30px 30px;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10;
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.additional-info {
+    margin-left: 10px;
+}
+
+nav .logo {
+    width: 80px;
+    height: 80px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: none;
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav address {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: none;
+    color: #fff;
+    text-decoration: none;
+}
+
+.logo-text:hover {
+    color: #ccc;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    line-height: 80px;
+    color: #fff;
+    padding: 12px 30px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+nav ul li a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 6px;
+    z-index: -1;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover::before {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+nav ul li a:hover {
+    background: rgba(0, 0, 0, 0.3);
+    border-color: #fff;
+    border-radius: 6px;
+}
+
+.language-dropdown {
+    position: relative;
+}
+
+.language-dropdown:hover .language-menu {
+    display: block;
+}
+
+.language-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: max-content;
+    background-color: rgba(141, 125, 125, 0);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.language-menu li {
+    padding: 8px 12px;
+}
+
+.language-menu li:hover {
+    background-color: rgba(231, 214, 214, 0.1);
+}
+
+.language-menu a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.language-menu a:hover {
+    color: #000;
+}
+
+.user-icon {
+    position: relative;
+}
+
+.user-icon img {
+    width: 60px;
+    height: auto;
+    border-radius: 50%;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    border: 2px solid transparent;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.user-icon:hover img {
+    transform: scale(0.9);
+    filter: brightness(0.8);
+    border-color: #fff;
+}
+
+.user-icon:hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.carousel-item img {
+    width: auto;
+    height: 640px;
+    object-fit: cover;
+}
+
+.carousel-caption p {
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 20px;
+    color: #fff;
+}
+
+.profile-text {
+    display: none;
+}
+
+.form-heading {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.booking-form {
+    width: 70%;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.location,
+.number,
+.date-inputs {
+    margin-bottom: 20px;
+}
+
+.location p,
+.number p,
+.date-inputs .start p,
+.date-inputs .end p {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.location input,
+.number input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.date-inputs {
+    display: flex;
+    justify-content: space-between;
+}
+
+.date-inputs .start,
+.date-inputs .end {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.date-inputs .start {
+    margin-right: 10px;
+}
+
+.date-inputs .end {
+    margin-left: 10px;
+}
+
+.date-inputs input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+button,
+a {
+    text-decoration: none;
+    color: inherit;
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 0.25rem;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    width: 440px;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.button-wrapper {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    padding: 1rem 0;
+}
+
+.btn-find,
+.btn-clear {
+    width: 100%;
+}
+
+.btn-find:hover,
+.btn-clear:hover {
+    opacity: 0.9;
+}
+
+.btn a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+
+@media screen and (max-width: 768px) {
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        padding: 3rem;
+        gap: 20px;
+    }
+
+    .booking-form {
+        width: 90%;
+    }
+
+    .carousel-item img {
+        width: auto;
+        height: 400px;
+        object-fit: cover;
+    }
+
+    .date-inputs {
+        flex-direction: column;
+    }
+
+    .date-inputs .start,
+    .date-inputs .end {
+        margin: 0 0 10px 0;
+        width: 100%;
+    }
+}
+
+.header {
+    width: 100%;
+    min-height: 120vh;
+    background: url('background.jpg') no-repeat center center;
+    background-size: cover;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.header h2 {
+    margin-top: 60px;
+    font-size: 5vw;
+    line-height: 11vw;
+}
+
+.form-heading {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 1200px) {
+    nav {
+        padding: 20px 20px;
+    }
+
+    .logo-text {
+        font-size: 20px;
+    }
+
+    nav ul li a {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .carousel-caption h3 {
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    nav {
+        padding: 15px 15px;
+    }
+
+    .logo-text {
+        font-size: 18px;
+    }
+
+    nav ul li a {
+        padding: 8px 15px;
+        font-size: 12px;
+    }
+
+    .carousel-caption h3 {
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    nav {
+        height: 50px;
+        padding: 10px 10px;
+    }
+
+    .logo-container .logo {
+        width: 40px;
+        height: 40px;
+    }
+
+    .logo-text {
+        font-size: 16px;
+    }
+
+    .menu-toggle {
+        display: block;
+        font-size: 30px;
+        cursor: pointer;
+        color: white;
+    }
+
+    nav ul {
+        display: none;
+        position: fixed;
+        top: 50px;
+        left: 0;
+        width: 100vw;
+        flex-direction: column;
+        align-items: center;
+        z-index: 0;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+
+    nav ul li a {
+        line-height: 40px;
+        padding: 5px 10px;
+        font-size: 14px;
+        display: block;
+        width: 100vw;
+    }
+
+    .user-icon {
+        display: none;
+    }
+
+    .profile-text {
+        display: block;
+        font-size: 14px;
+        color: white;
+        margin-right: 4px;
+
+    }
+
+    .booking-form {
+        width: 90%;
+    }
+
+    .booking-form .form-group>* {
+        flex-basis: 100%;
+    }
+
+    .booking-form .form-group>input[name="date"],
+    .booking-form .form-group>input[name="numberOfPeople"] {
+        flex-basis: calc(50% - 5px);
+    }
+
+    .carousel-caption h3 {
+        font-size: 30px;
+    }
+
+    .header h2 {
+        font-size: 30px;
+        line-height: 40px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        padding: 3rem;
+        gap: 20px;
+    }
+
+    nav {
+        padding: 5px 5px;
+    }
+
+    .logo-container .logo {
+        width: 30px;
+        height: 30px;
+    }
+
+    .logo-text {
+        font-size: 14px;
+    }
+
+    nav ul li a {
+        padding: 5px 8px;
+        font-size: 12px;
+    }
+
+    .carousel-caption p {
+        font-size: 14px;
+    }
+}
+
+.block_img {
+    padding: 10px;
+    display: grid;
+    height: 100 vh;
+    grid-gap: 50px;
+    grid-template-areas:
+        "box1 box2 box3"
+        "box4 box5 box6"
+    ;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(1000px, 1fr));
+    padding: 3rem;
+}
+
+.grid-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: rem;
+}
+
+.img_box {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.img_box img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+    max-width: 100%;
+    height: auto
+}
+
+.img_box:hover img {
+    transform: scale(1.05);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.img_box:hover .overlay {
+    opacity: 1;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    width: 30%;
+    margin-left: 20px;
+}
+
+.footer-section h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.footer-section p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-top: 16px;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    display: inline-block;
+    margin-right: 20px;
+    margin-top: 35px;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #ccc;
+}
+
+.footer-bottom {
+    background-color: #222;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.tour-details h3 {
+    margin-top: 0;
+}
+
+.profile-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile-info {
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.profile-picture img {
+    width: 100%;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+.user-details {
+    margin-left: 50px;
+}
+
+.user-details h2 {
+    margin-top: 0;
+}
+
+.tour-container {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    height:830px;
+}
+
+.tour {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.tour-image {
+    width: 100%;
+    height: 80%;
+}
+
+.tour-details {
+    padding: 10px;
+}
+
+.tour-details h3 {
+    margin-top: 0;
+}
